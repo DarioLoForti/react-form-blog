@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { FaRegTrashAlt } from "react-icons/fa";
+
 export default function () {
 
     const [title, setTitle] = useState('');
@@ -37,7 +39,7 @@ export default function () {
 
         <ul>
             {content.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}>{item} <FaRegTrashAlt /></li>
             ))}
         </ul>
         </>
