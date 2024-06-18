@@ -15,12 +15,12 @@ export default function () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(data.title.trim()){
+        if(data.title.trim() && data.description.trim() && data.image.trim()){
             setContent([data, ...content]);
             setData(defaultData);
             setError('');
         } else {
-          setError('Please enter a title');
+          setError('Please fill in all fields');
         }
     }
 
@@ -64,6 +64,7 @@ export default function () {
                     <button>Submit</button>
                 
             </form>
+            {error && <div className="error">{error}</div>}
 
             <h2 className='list'>Posts:</h2>
 
