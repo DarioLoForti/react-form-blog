@@ -18,30 +18,39 @@ export default function () {
         }
     }
 
+    const remuveItem = (index) => {
+        setContent(content => content.filter((_, i) => i !== index));
+    }
+
     return (
         <>
-        <form onSubmit={handleSubmit} id="articleForm">
-            <div className='form-control'>
-                <label> Title </label>
-                <input 
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder='Enter title here...'
-                    required
-                />
-            <button>Submit</button>
-            </div>
-            {error && <div className='error'>{error}</div>}
-        </form>
+            <form onSubmit={handleSubmit} id="articleForm">
+                <div className='form-control'>
+                    <label> Title </label>
+                    <input 
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder='Enter title here...'
+                        required
+                    />
+                    <button>Submit</button>
+                </div>
+                {error && <div className='error'>{error}</div>}
+            </form>
 
-        <h2 className='list'>Titles:</h2>
+            <h2 className='list'>Titles:</h2>
 
-        <ul>
-            {content.map((item, index) => (
-                <li key={index}>{item} <FaRegTrashAlt /></li>
-            ))}
-        </ul>
+            <ul>
+                {content.map((content, index) => (
+                    <li key={`content${index}`} 
+                    onClick={()=>remuveItem(index)}> 
+                    {content} <FaRegTrashAlt />
+                    </li>
+                ))}
+            </ul>
         </>
     )
+
 }
+        
