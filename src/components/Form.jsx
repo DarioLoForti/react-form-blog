@@ -74,6 +74,7 @@ export default function () {
                             <img src={image} alt={title} />
                             <h3>{title}</h3>
                             <p>{description}</p>
+                            <button onClick={() => remuveItem(index)}><FaRegTrashAlt /></button>
                         </div>
                     ))
                     }
