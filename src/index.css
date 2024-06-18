@@ -68,3 +68,9 @@
   .list{
     color: white;
   }
+
+  .error {
+    margin-top: 20px;
+    color: red;
+    font-size: 20px;
+  }

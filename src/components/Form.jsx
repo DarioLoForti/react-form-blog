@@ -3,11 +3,17 @@ export default function () {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
+    const [error, setError] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setContent([...content, title]);
-        setTitle('');
+        if(title.trim()){
+            setContent([title, ...content]);
+            setTitle('');
+            setError('');
+        } else {
+          setError('Please enter a title');
+        }
     }
 
     return (
@@ -20,10 +26,11 @@ export default function () {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder='Enter title here...'
+                    required
                 />
             <button>Submit</button>
             </div>
-            
+            {error && <div className='error'>{error}</div>}
         </form>
 
         <h2 className='list'>Titles:</h2>
