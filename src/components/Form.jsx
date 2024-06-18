@@ -46,10 +46,9 @@ export default function () {
                         onChange={(e) => changeData('title', e.target.value)}
                     />
                 </div>
-                <div className='form-control'>
-                    <label> Description </label>
-                    <input 
-                        type="text"
+                <div className='form-text-area'>
+                    <label> Description </label><br />
+                    <textarea
                         value={data.description}
                         onChange={(e) => changeData('description', e.target.value)}
                     />
