@@ -19,11 +19,14 @@ export default function () {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
+                    placeholder='Enter title here...'
                 />
             <button>Submit</button>
             </div>
             
         </form>
+
+        <h2 className='list'>Titles:</h2>
 
         <ul>
             {content.map((item, index) => (
