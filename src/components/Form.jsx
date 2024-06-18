@@ -8,7 +8,8 @@ export default function () {
     const [error, setError] = useState('');
     const defaultData = {
         title: '',
-        description: ''
+        description: '',
+        image: ''
     }
     const [data, setData] = useState(defaultData);
 
@@ -35,6 +36,7 @@ export default function () {
 
     return (
         <>
+        <h1>My blog</h1>
             <form onSubmit={handleSubmit} id="articleForm">
                 <div className='form-control'>
                     <label> Title </label>
@@ -52,21 +54,32 @@ export default function () {
                         onChange={(e) => changeData('description', e.target.value)}
                     />
                 </div>
+                <div className='form-control'>
+                    <label> Url Image </label>
+                    <input 
+                        type="text"
+                        value={data.image}
+                        onChange={(e) => changeData('image', e.target.value)}
+                    />
+                </div>
                     <button>Submit</button>
                 
             </form>
 
             <h2 className='list'>Posts:</h2>
 
-            <ul>
-                {content.map(({title, description}, index) => (
-                    <li key={`content${index}`} 
-                    onClick={()=>remuveItem(index)}> 
-                   {title} <br /> {description}
-                    <FaRegTrashAlt />
-                    </li>
-                ))}
-            </ul>
+            <div className="cards">
+                        <div className="card">
+                            {content.map(({title, description, image}, index) => (
+                                <div key={`content${index}`} className="card-item">
+                                    <img src={image} alt={title} />
+                                    <h3>{title}</h3>
+                                    <p>{description}</p>
+                                </div>
+                            ))
+                            }
+                        </div>
+            </div>
         </>
     )
 
