@@ -68,16 +68,16 @@ export default function () {
             <h2 className='list'>Posts:</h2>
 
             <div className="cards">
-                        <div className="card">
-                            {content.map(({title, description, image}, index) => (
-                                <div key={`content${index}`} className="card-item">
-                                    <img src={image} alt={title} />
-                                    <h3>{title}</h3>
-                                    <p>{description}</p>
-                                </div>
-                            ))
-                            }
+                <div className="card">
+                    {content.map(({title, description, image}, index) => (
+                        <div key={`content${index}`} className="card-item">
+                            <img src={image} alt={title} />
+                            <h3>{title}</h3>
+                            <p>{description}</p>
                         </div>
+                    ))
+                    }
+                </div>
             </div>
         </>
     )
