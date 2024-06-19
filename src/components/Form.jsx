@@ -16,7 +16,7 @@ export default function () {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(data.title.trim() && data.description.trim() && data.image.trim()){
-            setContent([data, ...content]);
+            setContent(curr => ([data, ...content]));
             setData(defaultData);
             setError('');
         } else {
@@ -66,7 +66,7 @@ export default function () {
             </form>
             {error && <div className="error">{error}</div>}
 
-            <h2 className='list'>Posts:</h2>
+            {content.length > 0 && <h2 className='list'>Posts:</h2>}
 
             <div className="cards">
                 <div className="card">
